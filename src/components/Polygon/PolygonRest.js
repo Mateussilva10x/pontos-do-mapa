@@ -11,11 +11,7 @@ const PolygonRest = () => {
 
   const paths = talhoesData.features[0].geometry.coordinates[0];
   const pathsArray = paths.map((path) => ({ lng: path[0], lat: path[1] }));
-  return (
-    <>
-      <Polygon paths={pathsArray} options={optionsPolygon} />
-    </>
-  );
+  return <Polygon paths={pathsArray} options={optionsPolygon} />;
 };
 
 export default PolygonRest;

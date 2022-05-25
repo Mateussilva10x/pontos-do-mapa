@@ -1,6 +1,8 @@
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { v4 as uuid4 } from "uuid";
 import { useMarker } from "../../context/MarkerContext";
 import pin from "../../assets/Regular=on, Move=off.svg";
+import pinClick from "../../assets/Regular=off, Move=on.svg";
 import PolygonRest from "../Polygon/PolygonRest";
 import Card from "../Card/Card";
 
@@ -9,13 +11,25 @@ const Maps = () => {
   const { dispatch, state } = useMarker();
 
   const handleClick = () => {
-    dispatch({ type: "ADD", payload: center });
+    dispatch({
+      type: "ADD",
+      payload: { ...center, id: uuid4(), draggable: false },
+    });
   };
 
-  console.log(state);
+  const handleRemovePin = () => {
+    dispatch({ type: "REMOVE" });
+  };
 
-  const handleRemove = () => {
+  const handleRemoveAll = () => {
     dispatch({ type: "REMOVE ALL" });
+  };
+
+  const handleMarker = (id) => {
+    dispatch({
+      type: "MODIFY",
+      payload: id,
+    });
   };
 
   const optionsMap = {
@@ -24,11 +38,13 @@ const Maps = () => {
     zoomControl: true,
     disableDefaultUI: true,
   };
-
-  const optionsMarker = {
-    draggable: true,
-  };
-
+  // const optionsMap = (map) => ({
+  //   map.controls: [],
+  //   mapTypeId: "satellite",
+  //   zoomControl: true,
+  //   zoomControlOptions: { position: map.ControlPosition.RIGHT_TOP },
+  //   disableDefaultUI: true,
+  // });
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBEAZxY2lhg4lozssrO4j2VdkCrAddNdTU",
@@ -38,8 +54,8 @@ const Maps = () => {
       {isLoaded ? (
         <>
           <button onClick={handleClick}>Adicionar novo ponto</button>
-          <button>Remover Pin</button>
-          <button onClick={handleRemove}>Remover Todos</button>
+          <button onClick={handleRemovePin}>Remover Pin</button>
+          <button onClick={handleRemoveAll}>Remover Todos</button>
           <GoogleMap
             mapContainerStyle={{ width: "100%", height: "100%" }}
             center={center}
@@ -50,12 +66,13 @@ const Maps = () => {
             {state.map((marker) => (
               <Marker
                 key={marker.index}
-                icon={pin}
-                options={optionsMarker}
+                icon={marker.draggable ? pinClick : pin}
+                draggable={marker.draggable}
                 position={marker}
+                onClick={() => handleMarker(marker.id)}
               />
             ))}
-            ;
+
             <Card />
           </GoogleMap>
         </>

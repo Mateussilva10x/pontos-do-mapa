@@ -16,7 +16,15 @@
 
 .content {
   background-color: #fff;
+}
+
+.separator {
   padding: 0 16px;
+  border-bottom: 1px solid #e7e8ef;
+}
+
+.separator p {
+  margin-bottom: 10px;
 }
 
 .row {

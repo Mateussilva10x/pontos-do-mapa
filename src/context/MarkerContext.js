@@ -14,7 +14,7 @@ function reducer(state, action) {
       });
     case "REMOVE":
       return [...state.filter((item) => item.draggable !== true)];
-    case "REMOVE ALL":
+    case "REMOVE_ALL":
       return [];
     default:
       return state;

@@ -7,11 +7,11 @@ import trash from "../../assets/Trash.svg";
 import "../../styles/modal.scss";
 
 const Modal = () => {
-  const { toggleShow, show } = useModal();
+  const { toggleShow, show, fn, title } = useModal();
   const { dispatch } = useMarker();
 
-  const handleRemoveAll = () => {
-    dispatch({ type: "REMOVE ALL" });
+  const handleRemove = () => {
+    dispatch({ type: fn });
     toggleShow();
   };
 
@@ -20,13 +20,13 @@ const Modal = () => {
       {show && (
         <div id="modal" className="modal">
           <div className="modal-content">
-            <div className="header-close">
+            <div className="headerClose">
               <span onClick={toggleShow} className="close">
                 &times;
               </span>
             </div>
             <div className="titleExclude">
-              <h2>Excluir todos os pontos?</h2>
+              <h2>{title}</h2>
             </div>
             <div className="warning">
               <div className="warningContent">
@@ -35,7 +35,7 @@ const Modal = () => {
               </div>
             </div>
             <div className="buttonsConfirm">
-              <button onClick={handleRemoveAll} className="confirmExclude">
+              <button onClick={handleRemove} className="confirmExclude">
                 <img src={trash} alt="" /> Excluir
               </button>
               <button onClick={toggleShow} className="cancel">

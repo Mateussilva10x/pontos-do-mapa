@@ -17,17 +17,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    position: absolute;
+    left: 45%;
+    top: 30%;
+    background-color: #fff;
     button {
       cursor: pointer;
     }
 
+    .headerClose {
+      width: 100%;
+      align-items: right;
+      background-color: #20252b;
+    }
     span {
       margin: 0 1%;
       cursor: pointer;
       color: #fff;
       float: right;
-      font-size: 55px;
+      font-size: 18px;
       font-weight: bold;
       line-height: 22px;
 

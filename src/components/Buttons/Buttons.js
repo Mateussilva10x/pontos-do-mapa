@@ -3,43 +3,47 @@ import { v4 as uuid4 } from "uuid";
 import pinButton from "../../assets/Pin.svg";
 import trash from "../../assets/Trash.svg";
 
-import "./button.css";
+import "../../styles/buttons.scss";
+import { useModal } from "../../context/ModalContext";
 
 const Buttons = () => {
-  const { dispatch, state } = useMarker();
+  const { dispatch, state, selected, setSelected } = useMarker();
+  const { toggleShow } = useModal();
   const center = { lng: -53.5845, lat: -15.18 };
-  const handleClick = () => {
+  const handleAdd = () => {
     dispatch({
       type: "ADD",
       payload: { ...center, id: uuid4(), draggable: false },
     });
   };
 
-  const handleRemovePin = () => {
-    dispatch({ type: "REMOVE" });
+  const handleRemovePin = (pinSelected) => {
+    dispatch({ type: "REMOVE", payload: pinSelected });
+    setSelected(false);
   };
 
-  const handleRemoveAll = () => {
-    dispatch({ type: "REMOVE ALL" });
+  const handleRemove = () => {
+    toggleShow();
+    console.log("deveria aparecer o modal");
   };
 
   return (
     <div className="buttons">
-      <button onClick={handleClick}>
+      <button onClick={handleAdd}>
         Adicionar novo ponto <img src={pinButton} alt="" />
       </button>
-      {state.length > 0 ? (
+      {state.length > 0 && (
         <>
-          <button onClick={handleRemoveAll}>
+          <button onClick={handleRemove}>
             Remover Todos <img src={trash} alt="" />
           </button>
         </>
-      ) : (
-        ""
       )}
-      <button onClick={handleRemovePin}>
-        Remover Pin <img src={trash} alt="" />
-      </button>
+      {selected && (
+        <button onClick={handleRemovePin}>
+          Remover Pin <img src={trash} alt="" />
+        </button>
+      )}
     </div>
   );
 };

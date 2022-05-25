@@ -42,14 +42,6 @@ const Modal = () => {
                 Cancelar
               </button>
             </div>
-
-            {/* <div className="images-modal">
-              <img
-                id="image-hight"
-                src={}
-                alt="images from each note expanded"
-              />
-            </div> */}
           </div>
         </div>
       )}

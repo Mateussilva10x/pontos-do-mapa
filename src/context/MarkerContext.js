@@ -1,4 +1,4 @@
-import { useContext, createContext, useReducer } from "react";
+import { useContext, createContext, useReducer, useState } from "react";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -27,9 +27,10 @@ const MarkerContext = createContext();
 
 export const MarkerContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [select, setSelect] = useState(null);
 
   return (
-    <MarkerContext.Provider value={{ dispatch, state }}>
+    <MarkerContext.Provider value={{ dispatch, state, select, setSelect }}>
       {children}
     </MarkerContext.Provider>
   );

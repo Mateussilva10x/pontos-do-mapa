@@ -4,8 +4,16 @@ function reducer(state, action) {
   switch (action.type) {
     case "ADD":
       return [...state, action.payload];
+    case "MODIFY":
+      return state.map((item) => {
+        item.draggable = false;
+        if (item.id === action.payload) {
+          item.draggable = true;
+        }
+        return item;
+      });
     case "REMOVE":
-      return state.filter((item) => item.id !== state.id);
+      return [...state.filter((item) => item.draggable !== true)];
     case "REMOVE ALL":
       return [];
     default:

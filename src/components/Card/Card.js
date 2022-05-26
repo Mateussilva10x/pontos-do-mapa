@@ -1,3 +1,4 @@
+import moment from "moment";
 import pointIcon from "../../assets/Culture Icon.svg";
 import { useMarker } from "../../context/MarkerContext";
 
@@ -19,16 +20,7 @@ const Card = () => {
                 <img src={pointIcon} alt="" />
                 Ponto nº {String(index + 1).padStart(3, "0")}{" "}
               </h3>
-              <p>
-                Criado em:{" "}
-                {card.date.toISOString().split("-").join("/").split("T")[0]} -{" "}
-                {card.date
-                  .toISOString()
-                  .split("-")
-                  .join("/")
-                  .split("T")[1]
-                  .slice(0, 5)}
-              </p>
+              <p>Criado em: {moment(card.date).format("DD/MM/YYYY - hh:mm")}</p>
             </div>
           ))
         ) : (

@@ -4,7 +4,6 @@ import { useMarker } from "../../context/MarkerContext";
 
 const CardContentList = () => {
   const { state } = useMarker();
-  console.log(state);
   return (
     <>
       {state.map((card, index) => (
@@ -18,7 +17,7 @@ const CardContentList = () => {
             <img src={pointIcon} alt="" />
             Ponto nº {String(index + 1).padStart(3, "0")}{" "}
           </h3>
-          <p>Criado em: {moment(card.date).format("DD/MM/YYYY - hh:mm")}</p>
+          <p>Criado em: {moment(card.date).format("DD/MM/YYYY - HH:mm ")}</p>
         </div>
       ))}
     </>

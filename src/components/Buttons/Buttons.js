@@ -22,17 +22,17 @@ const Buttons = () => {
 
   const handleAdd = () => {
     dispatch({
-      type: "ADD",
+      type: "ADD_MARKER",
       payload: { ...center, id: uuid4(), draggable: false, date: new Date() },
     });
   };
 
   const handleRemovePin = () => {
-    toggleShow("Excluir Ponto selecionado?", "REMOVE");
+    toggleShow("Excluir Ponto selecionado?", "REMOVE_ONE_MARKER");
   };
 
   const handleRemoveAll = () => {
-    toggleShow("Excluir Todos os pontos?", "REMOVE_ALL");
+    toggleShow("Excluir Todos os pontos?", "REMOVE_ALL_MARKERS");
   };
 
   return (

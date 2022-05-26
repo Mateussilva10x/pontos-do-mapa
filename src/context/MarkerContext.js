@@ -2,9 +2,9 @@ import { useContext, createContext, useReducer, useState } from "react";
 
 function reducer(state, action) {
   switch (action.type) {
-    case "ADD":
+    case "ADD_MARKER":
       return [...state, action.payload];
-    case "MODIFY":
+    case "MODIFY_POSITION":
       return state.map((item) => {
         item.draggable = false;
         if (item.id === action.payload) {
@@ -12,9 +12,16 @@ function reducer(state, action) {
         }
         return item;
       });
-    case "REMOVE":
+    case "FIXED_POSITION":
+      return state.map((item) => {
+        item.draggable = false;
+
+        return item;
+      });
+
+    case "REMOVE_ONE_MARKER":
       return [...state.filter((item) => item.draggable !== true)];
-    case "REMOVE_ALL":
+    case "REMOVE_ALL_MARKERS":
       return [];
     default:
       return state;

@@ -9,9 +9,13 @@ const MarkerPoint = () => {
 
   const handleMarker = (id) => {
     dispatch({
-      type: "MODIFY",
+      type: "MODIFY_POSITION",
       payload: id,
     });
+  };
+
+  const handleFixed = () => {
+    dispatch({ type: "FIXED_POSITION" });
   };
 
   return (
@@ -23,6 +27,7 @@ const MarkerPoint = () => {
           draggable={marker.draggable}
           position={marker}
           onClick={() => handleMarker(marker.id)}
+          onDragEnd={handleFixed}
         />
       ))}
     </>

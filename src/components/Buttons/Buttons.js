@@ -33,15 +33,15 @@ const Buttons = () => {
     <div className="buttons">
       {isSelected && (
         <button className="buttonColor" onClick={handleRemovePin}>
-          Remover Pin <img src={trash} alt="" />
+          Deletar Pin <img src={trash} alt="" />
         </button>
       )}
       <button onClick={handleAdd}>
-        Adicionar novo ponto <img src={pinButton} alt="" />
+        Adicionar Novo <img src={pinButton} alt="" />
       </button>
       {state.length > 0 && (
         <button className="buttonColor" onClick={handleRemoveAll}>
-          Remover Todos <img src={trash} alt="" />
+          Deletar Todos <img src={trash} alt="" />
         </button>
       )}
     </div>

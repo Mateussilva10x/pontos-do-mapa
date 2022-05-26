@@ -18,7 +18,7 @@ const MarkerPoint = () => {
     <>
       {state.map((marker) => (
         <Marker
-          key={marker.index}
+          key={marker.id}
           icon={marker.draggable ? pinClick : pin}
           draggable={marker.draggable}
           position={marker}

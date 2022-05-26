@@ -1,4 +1,4 @@
-import logoFb from "../../assets/logo.png";
+import logoFb from "../../assets/logoFb.png";
 
 import "../../styles/header.scss";
 

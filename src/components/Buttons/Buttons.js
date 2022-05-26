@@ -6,6 +6,7 @@ import pinButton from "../../assets/Pin.svg";
 import trash from "../../assets/Trash.svg";
 import GEOData from "../../data/Talhao.json";
 import calculateCenter from "../../utils/CalculateCenter";
+// import teste from "../../data/teste.json";
 
 import "../../styles/buttons.scss";
 

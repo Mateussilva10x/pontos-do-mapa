@@ -5,6 +5,7 @@ import Buttons from "../Buttons/Buttons";
 import MarkerPoint from "../Marker/Marker";
 import calculateCenter from "../../utils/CalculateCenter";
 import GEOData from "../../data/Talhao.json";
+// import teste from "../../data/teste.json";
 
 const Maps = () => {
   const paths = GEOData.features[0].geometry.coordinates[0];
@@ -29,7 +30,7 @@ const Maps = () => {
           <GoogleMap
             mapContainerStyle={{ width: "100%", height: "100%" }}
             center={center}
-            zoom={16.3}
+            zoom={16.2}
             options={optionsMap}
           >
             <PolygonRest />

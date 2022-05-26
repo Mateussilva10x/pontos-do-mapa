@@ -1,10 +1,13 @@
 import { useMarker } from "../../context/MarkerContext";
 import { v4 as uuid4 } from "uuid";
+import { useModal } from "../../context/ModalContext";
+
 import pinButton from "../../assets/Pin.svg";
 import trash from "../../assets/Trash.svg";
+import GEOData from "../../data/Talhao.json";
+import calculateCenter from "../../utils/CalculateCenter";
 
 import "../../styles/buttons.scss";
-import { useModal } from "../../context/ModalContext";
 
 const Buttons = () => {
   const { dispatch, state } = useMarker();
@@ -12,7 +15,9 @@ const Buttons = () => {
 
   const isSelected = !!state.find((item) => item.draggable);
 
-  const center = { lng: -53.5845, lat: -15.18 };
+  const paths = GEOData.features[0].geometry.coordinates[0];
+  const pathsArray = paths.map((path) => ({ lng: path[0], lat: path[1] }));
+  const center = calculateCenter(pathsArray);
 
   const handleAdd = () => {
     dispatch({

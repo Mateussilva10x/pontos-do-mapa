@@ -1,8 +1,8 @@
 .buttons {
   z-index: 3;
   position: absolute;
-  right: 50px;
-  bottom: 2%;
+  right: 2%;
+  bottom: 3%;
   display: flex;
   flex-direction: column;
 
@@ -10,6 +10,7 @@
     background-color: red;
     color: #fff;
     border: 1px solid red;
+    animation: opacityOn 1s;
   }
 
   button {
@@ -24,11 +25,21 @@
     align-items: center;
     text-transform: uppercase;
     font-weight: bold;
-    margin: 6px;
+    margin: 4px 0;
     padding: 0 8px;
   }
 
   img {
     margin-left: 8px;
+  }
+}
+
+@keyframes opacityOn {
+  100% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 0;
   }
 }

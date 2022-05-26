@@ -8,10 +8,10 @@ const Card = () => {
 
   return (
     <div className="card">
+      <div className="titleContent">
+        <h2>Listagem de pontos</h2>
+      </div>
       <div className="content">
-        <div className="titleContent">
-          <h2>Listagem de pontos</h2>
-        </div>
         {state.length > 0 ? (
           <CardContentList />
         ) : (

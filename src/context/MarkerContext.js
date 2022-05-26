@@ -1,6 +1,12 @@
-import { useContext, createContext, useReducer, useState } from "react";
+import {
+  useContext,
+  createContext,
+  useReducer,
+  useState,
+  useEffect,
+} from "react";
 
-function reducer(state, action) {
+const reducer = (state = {}, action) => {
   switch (action.type) {
     case "ADD_MARKER":
       return [...state, action.payload];
@@ -26,7 +32,7 @@ function reducer(state, action) {
     default:
       return state;
   }
-}
+};
 
 const initialState = [];
 
@@ -35,6 +41,14 @@ const MarkerContext = createContext();
 export const MarkerContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [select, setSelect] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("localState", JSON.stringify(state));
+  }, [state]);
+
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("localState"));
+  }, []);
 
   return (
     <MarkerContext.Provider value={{ dispatch, state, select, setSelect }}>

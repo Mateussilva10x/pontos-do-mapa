@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/Header/Header";
 import Maps from "./components/Maps/Maps";
 import Modal from "./components/Modal/Modal";

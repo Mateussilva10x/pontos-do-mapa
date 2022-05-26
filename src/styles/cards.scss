@@ -53,15 +53,10 @@
     margin-right: 2px;
   }
 }
-
-.colum {
-  display: flex;
-  flex-direction: column;
-
-  p {
-    margin-top: -10px;
-    text-align: left;
-  }
+.selected {
+  background-color: #f5f6fa;
+  border-radius: 8px;
+  animation: opacityOn 1s;
 }
 
 .textContentEmpty {

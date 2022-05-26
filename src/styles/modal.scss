@@ -11,6 +11,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  animation: opacityOn 1s;
 
   .modal-content {
     width: 18%;
@@ -124,5 +125,15 @@
         margin-left: 16px;
       }
     }
+  }
+}
+
+@keyframes opacityOn {
+  100% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 0;
   }
 }

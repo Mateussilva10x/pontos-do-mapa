@@ -3,9 +3,13 @@ import PolygonRest from "../Polygon/PolygonRest";
 import Card from "../Card/Card";
 import Buttons from "../Buttons/Buttons";
 import MarkerPoint from "../Marker/Marker";
+import calculateCenter from "../../utils/CalculateCenter";
+import GEOData from "../../data/Talhao.json";
 
 const Maps = () => {
-  const center = { lng: -53.5845, lat: -15.18 };
+  const paths = GEOData.features[0].geometry.coordinates[0];
+  const pathsArray = paths.map((path) => ({ lng: path[0], lat: path[1] }));
+  const center = calculateCenter(pathsArray);
 
   const optionsMap = {
     controls: [],
@@ -25,7 +29,7 @@ const Maps = () => {
           <GoogleMap
             mapContainerStyle={{ width: "100%", height: "100%" }}
             center={center}
-            zoom={16}
+            zoom={16.3}
             options={optionsMap}
           >
             <PolygonRest />

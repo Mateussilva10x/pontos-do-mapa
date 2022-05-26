@@ -1,8 +1,7 @@
-import moment from "moment";
-import pointIcon from "../../assets/Culture Icon.svg";
 import { useMarker } from "../../context/MarkerContext";
 
 import "../../styles/cards.scss";
+import CardContentList from "./CardContentList";
 
 const Card = () => {
   const { state } = useMarker();
@@ -14,15 +13,7 @@ const Card = () => {
           <h2>Listagem de pontos</h2>
         </div>
         {state.length > 0 ? (
-          state.map((card, index) => (
-            <div key={card.id} className="textContent">
-              <h3>
-                <img src={pointIcon} alt="" />
-                Ponto nº {String(index + 1).padStart(3, "0")}{" "}
-              </h3>
-              <p>Criado em: {moment(card.date).format("DD/MM/YYYY - hh:mm")}</p>
-            </div>
-          ))
+          <CardContentList />
         ) : (
           <div className="textContentEmpty">
             <p>Sem pontos de monitoramento para exibir no momento </p>

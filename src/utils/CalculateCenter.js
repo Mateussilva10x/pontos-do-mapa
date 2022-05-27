@@ -5,7 +5,7 @@ function calculateCenter(coordinates) {
   let i;
 
   // ignorando primeiro elemento
-  for (i = 1; i < coordinates.length; i++) {
+  for (i = 0; i < coordinates.length; i++) {
     let x, y, z;
     let lat, lon;
 

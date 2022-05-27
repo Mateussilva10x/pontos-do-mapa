@@ -6,18 +6,18 @@ const CardContentList = () => {
   const { state } = useMarker();
   return (
     <>
-      {state.map((card, index) => (
+      {state.map((marker, index) => (
         <div
-          key={card.id}
+          key={marker.id}
           className={
-            card.draggable === true ? "textContent selected" : "textContent"
+            marker.draggable === true ? "textContent selected" : "textContent"
           }
         >
           <h3>
             <img src={pointIcon} alt="" />
             Ponto nº {String(index + 1).padStart(3, "0")}{" "}
           </h3>
-          <p>Criado em: {moment(card.date).format("DD/MM/YYYY - HH:mm ")}</p>
+          <p>Criado em: {moment(marker.date).format("DD/MM/YYYY - HH:mm ")}</p>
         </div>
       ))}
     </>

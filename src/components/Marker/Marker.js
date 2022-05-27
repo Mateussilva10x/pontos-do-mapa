@@ -9,13 +9,19 @@ const MarkerPoint = () => {
 
   const handleMarker = (id) => {
     dispatch({
-      type: "MODIFY_POSITION",
+      type: "ENABLE_MARKER",
       payload: id,
     });
   };
 
-  const handleFixed = () => {
-    dispatch({ type: "FIXED_POSITION" });
+  const handleFixed = (id, event) => {
+    const latMarker = event.latLng.lat();
+    const lngMarker = event.latLng.lng();
+
+    dispatch({
+      type: "DISABLE_MARKER",
+      payload: { id, latMarker, lngMarker },
+    });
   };
 
   return (
@@ -27,7 +33,7 @@ const MarkerPoint = () => {
           draggable={marker.draggable}
           position={marker}
           onClick={() => handleMarker(marker.id)}
-          onDragEnd={handleFixed}
+          onDragEnd={(event) => handleFixed(marker.id, event)}
         />
       ))}
     </>

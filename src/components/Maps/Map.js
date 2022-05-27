@@ -8,7 +8,7 @@ const Map = () => {
     googleMapsApiKey: "AIzaSyBEAZxY2lhg4lozssrO4j2VdkCrAddNdTU",
   });
 
-  return <>{isLoaded ? <MapContent /> : <Loading />}</>;
+  return isLoaded ? <MapContent /> : <Loading />;
 };
 
 export default Map;

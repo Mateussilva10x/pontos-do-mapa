@@ -7,6 +7,8 @@ import calculateCenter from "../../utils/CalculateCenter";
 import GEOData from "../../data/Talhao.json";
 // import teste from "../../data/teste.json";
 
+import "../../styles/mapContent.scss";
+
 const MapContent = () => {
   const paths = GEOData.features[0].geometry.coordinates[0];
   const pathsArray = paths.map((path) => ({ lng: path[0], lat: path[1] }));
@@ -24,7 +26,7 @@ const MapContent = () => {
   };
 
   return (
-    <div style={{ height: "91.7vh" }}>
+    <div className="map">
       <Buttons />
       <GoogleMap
         mapContainerStyle={{ width: "100%", height: "100%" }}

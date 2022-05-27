@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import Maps from "./components/Maps/Maps";
+import Map from "./components/Maps/Map";
 import Modal from "./components/Modal/Modal";
 import { MarkerContextProvider } from "./context/MarkerContext";
 import { ModalContextProvider } from "./context/ModalContext";
@@ -11,7 +11,7 @@ function App() {
         <ModalContextProvider>
           <Modal />
           <Header />
-          <Maps />
+          <Map />
         </ModalContextProvider>
       </MarkerContextProvider>
     </>

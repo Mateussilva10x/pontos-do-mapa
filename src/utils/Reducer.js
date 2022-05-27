@@ -4,26 +4,26 @@ export const reducer = (state, action) => {
       return [...state, action.payload];
 
     case "ENABLE_MARKER":
-      return state.map((item) => {
-        item.draggable = false;
-        if (item.id === action.payload) {
-          item.draggable = true;
+      return state.map((marker) => {
+        marker.draggable = false;
+        if (marker.id === action.payload) {
+          marker.draggable = true;
         }
-        return item;
+        return marker;
       });
 
     case "DISABLE_MARKER":
-      return state.map((item) => {
-        item.draggable = false;
-        if (item.id === action.payload.id) {
-          item.lat = action.payload.latMarker;
-          item.lng = action.payload.lngMarker;
+      return state.map((marker) => {
+        marker.draggable = false;
+        if (marker.id === action.payload.id) {
+          marker.lat = action.payload.latMarker;
+          marker.lng = action.payload.lngMarker;
         }
-        return item;
+        return state;
       });
 
     case "REMOVE_ONE_MARKER":
-      return [...state.filter((item) => item.draggable !== true)];
+      return [...state.filter((marker) => marker.draggable !== true)];
 
     case "REMOVE_ALL_MARKERS":
       return [];

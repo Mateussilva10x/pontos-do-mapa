@@ -5,8 +5,9 @@ import {
   useState,
   useEffect,
 } from "react";
-import { initialState } from "../utils/Reducer";
-import { wrapper } from "../utils/wrapper";
+
+import { wrapper, initialState } from "../utils/Reducer";
+
 
 const MarkerContext = createContext();
 

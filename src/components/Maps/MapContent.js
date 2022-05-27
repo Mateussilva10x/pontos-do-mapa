@@ -1,13 +1,18 @@
 import { GoogleMap } from "@react-google-maps/api";
+
 import PolygonRest from "../Polygon/PolygonRest";
 import Card from "../Card/Card";
 import Buttons from "../Buttons/Buttons";
 import MarkerPoint from "../Marker/Marker";
+
+
 import calculateCenter from "../../utils/CalculateCenter";
 import GEOData from "../../data/Talhao.json";
-// import teste from "../../data/teste.json";
 
-import "../../styles/mapContent.scss";
+
+import "../../styles/map.scss";
+
+
 
 const MapContent = () => {
   const paths = GEOData.features[0].geometry.coordinates[0];
@@ -26,7 +31,7 @@ const MapContent = () => {
   };
 
   return (
-    <div className="map">
+    <div className="mapContent">
       <Buttons />
       <GoogleMap
         mapContainerStyle={{ width: "100%", height: "100%" }}

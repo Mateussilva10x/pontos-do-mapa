@@ -27,6 +27,7 @@ export const reducer = (state, action) => {
 
     case "REMOVE_ALL_MARKERS":
       return [];
+
     case "LOAD":
       return JSON.parse(localStorage.getItem("localState")) || initialState;
     default:

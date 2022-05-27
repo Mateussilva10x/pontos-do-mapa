@@ -1,13 +1,18 @@
 import { GoogleMap } from "@react-google-maps/api";
+
 import PolygonRest from "../Polygon/PolygonRest";
 import Card from "../Card/Card";
 import Buttons from "../Buttons/Buttons";
 import MarkerPoint from "../Marker/Marker";
+
+
 import calculateCenter from "../../utils/CalculateCenter";
 import GEOData from "../../data/Talhao.json";
 
+
 import "../../styles/map.scss";
-// import teste from "../../data/teste.json";
+
+
 
 const MapContent = () => {
   const paths = GEOData.features[0].geometry.coordinates[0];

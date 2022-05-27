@@ -7,6 +7,7 @@ const Map = () => {
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBEAZxY2lhg4lozssrO4j2VdkCrAddNdTU",
   });
+
   return isLoaded ? <MapContent /> : <Loading />;
 };
 

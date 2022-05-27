@@ -8,6 +8,7 @@ import {
 
 import { wrapper, initialState } from "../utils/Reducer";
 
+
 const MarkerContext = createContext();
 
 export const MarkerContextProvider = ({ children }) => {

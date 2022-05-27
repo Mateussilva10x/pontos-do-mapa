@@ -1,4 +1,6 @@
+
 const reducer = (state, action) => {
+
   switch (action.type) {
     case "ADD_MARKER":
       return [...state, action.payload];
@@ -19,7 +21,9 @@ const reducer = (state, action) => {
           marker.lat = action.payload.latMarker;
           marker.lng = action.payload.lngMarker;
         }
+
         return marker;
+
       });
 
     case "REMOVE_ONE_MARKER":
@@ -27,6 +31,8 @@ const reducer = (state, action) => {
 
     case "REMOVE_ALL_MARKERS":
       return [];
+
+
     case "LOAD":
       return JSON.parse(localStorage.getItem("localState")) || initialState;
     default:
@@ -43,3 +49,4 @@ export const wrapper = (state, action) => {
 
   return wrapperState;
 };
+

@@ -19,7 +19,7 @@ const MarkerPoint = () => {
     const lngMarker = event.latLng.lng();
 
     dispatch({
-      type: "DISABLE_MARKER",
+      type: "MODIFY_POSITION",
       payload: { id, latMarker, lngMarker },
     });
   };

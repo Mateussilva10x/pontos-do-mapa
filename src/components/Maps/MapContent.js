@@ -5,14 +5,10 @@ import Card from "../Card/Card";
 import Buttons from "../Buttons/Buttons";
 import MarkerPoint from "../Marker/Marker";
 
-
 import calculateCenter from "../../utils/CalculateCenter";
 import GEOData from "../../data/Talhao.json";
 
-
 import "../../styles/map.scss";
-
-
 
 const MapContent = () => {
   const paths = GEOData.features[0].geometry.coordinates[0];

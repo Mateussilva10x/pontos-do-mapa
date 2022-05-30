@@ -2,7 +2,6 @@ import { Polygon } from "@react-google-maps/api";
 import { useMarker } from "../../context/MarkerContext";
 
 import GEOData from "../../data/Talhao.json";
-// import teste from "../../data/teste.json";
 
 const PolygonRest = () => {
   const { dispatch, state } = useMarker();

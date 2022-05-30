@@ -3,7 +3,7 @@ import pointIcon from "../../assets/Culture Icon.svg";
 import { useMarker } from "../../context/MarkerContext";
 
 const CardContentList = () => {
-  const { state } = useMarker();
+  const { state, dispatch } = useMarker();
   // const google = window.google;
 
   // console.log(google);
@@ -18,6 +18,10 @@ const CardContentList = () => {
   //   dispatch({ type: "TESTE", payload: id });
   // };
 
+  const handleClick = (id) => {
+    dispatch({ type: "ENABLE_MARKER", payload: id });
+  };
+
   return (
     <>
       {state.map((marker, index) => (
@@ -26,7 +30,7 @@ const CardContentList = () => {
           className={
             marker.draggable === true ? "textContent selected" : "textContent"
           }
-          // onClick={() => handleClick(marker.id)}
+          onClick={() => handleClick(marker.id)}
         >
           <h3>
             <img src={pointIcon} alt="" />

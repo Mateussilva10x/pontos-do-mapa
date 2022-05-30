@@ -14,9 +14,9 @@ const MarkerPoint = () => {
     });
   };
 
-  const handleFixed = (id, event) => {
-    const latMarker = event.latLng.lat();
-    const lngMarker = event.latLng.lng();
+  const handleFixed = (id, position) => {
+    const latMarker = position.latLng.lat();
+    const lngMarker = position.latLng.lng();
 
     dispatch({
       type: "MODIFY_POSITION",
@@ -33,7 +33,7 @@ const MarkerPoint = () => {
           draggable={marker.draggable}
           position={marker}
           onClick={() => handleMarker(marker.id)}
-          onDragEnd={(event) => handleFixed(marker.id, event)}
+          onDragEnd={(position) => handleFixed(marker.id, position)}
         />
       ))}
     </>

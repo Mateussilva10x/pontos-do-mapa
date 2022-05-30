@@ -1,6 +1,4 @@
-
 const reducer = (state, action) => {
-
   switch (action.type) {
     case "ADD_MARKER":
       return [...state, action.payload];
@@ -14,7 +12,7 @@ const reducer = (state, action) => {
         return marker;
       });
 
-    case "DISABLE_MARKER":
+    case "MODIFY_POSITION":
       return state.map((marker) => {
         marker.draggable = false;
         if (marker.id === action.payload.id) {
@@ -23,15 +21,27 @@ const reducer = (state, action) => {
         }
 
         return marker;
-
       });
+    case "DISABLE_MARKER":
+      return state.map((marker) => {
+        marker.draggable = false;
+
+        return marker;
+      });
+
+    // case "TESTE":
+    //   return state.map((marker) => {
+    //     if (marker.id === action.payload.id) {
+    //       marker.setAnimation(action.payload);
+    //     }
+    //     return marker;
+    //   });
 
     case "REMOVE_ONE_MARKER":
       return [...state.filter((marker) => marker.draggable !== true)];
 
     case "REMOVE_ALL_MARKERS":
       return [];
-
 
     case "LOAD":
       return JSON.parse(localStorage.getItem("localState")) || initialState;
@@ -44,9 +54,7 @@ export const initialState = [];
 
 export const wrapper = (state, action) => {
   const wrapperState = reducer(state, action);
-  console.log(wrapperState);
   localStorage.setItem("localState", JSON.stringify(wrapperState));
 
   return wrapperState;
 };
-

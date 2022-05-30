@@ -38,7 +38,7 @@ const reducer = (state, action) => {
     //   });
 
     case "REMOVE_ONE_MARKER":
-      return [...state.filter((marker) => marker.draggable !== true)];
+      return state.filter(({ draggable }) => !draggable);
 
     case "REMOVE_ALL_MARKERS":
       return [];
